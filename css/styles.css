@@ -1,0 +1,92 @@
+/* styles.css */
+
+body { 
+  background-color:  #d9eaff; /* Light blue background */
+  color: #333333; /* Dark gray text color */
+  font-family: 'Roboto Mono', monospace; /* Font family for developer */
+}
+
+#about {
+  margin: 20px auto; /* Adjust the margin values as desired */
+  padding: 10px;
+  max-width: 800px;
+  background-color:rgba(240, 245, 253, 0.2); /* Calming blue background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  
+}
+
+
+.project-container {
+  display: flex;
+  justify-content: space-between; 
+  width: 80%; 
+  box-shadow: 0 2px 4px rgba(254, 189, 105, 0.1);
+  margin: 0 auto;
+}
+
+.project-1,
+.project-2,
+.project-3 {
+  flex: 1 0 30%;
+  margin: 0 10px;
+  width: 350px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: rgb(245, 245, 245, 0.1);
+}
+
+.project-1,
+.project-2,
+.project-3,
+ img {
+  max-width: 80%;
+  height: auto;
+  text-align: center;
+}
+
+#projects h1 {
+  font-size: 24px; /* Adjust the font size as desired */
+  margin-bottom: 20px; /* Add margin at the bottom to match the other project elements */
+  color: #333; /* Set the color of the heading */
+  text-align: center;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  text-align: center;
+  
+}
+
+.robo {
+  width: 100px;
+}
+
+p {
+  color: #555555; /* Dark gray paragraph color */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.icon {
+  width: 30px; /* Adjust the size of the icons as desired */
+  height: auto;
+  margin: 0 15px; /* Adjust the margin between the icons as desired */
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #ffffff; /* White footer background */
+  color: #555555; /* Dark gray text color */
+}
+
