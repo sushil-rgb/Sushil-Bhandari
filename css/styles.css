@@ -86,7 +86,7 @@ p {
 footer {
   text-align: center;
   padding: 10px;
-  background-color: rgba(240, 245, 253, 0.2); /* White footer background */
+  background-color: #d9eaff; /* White footer background */
   color: #555555; /* Dark gray text color */
 }
 
