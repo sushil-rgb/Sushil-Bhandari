@@ -79,16 +79,17 @@ p {
   color: #555555; /* Dark gray paragraph color */
 }
 
+
 .social-icons {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 30px;  
 }
 
 .icon {
-  width: 30px; /* Adjust the size of the icons as desired */
+  width: 30px;
   height: auto;
-  margin: 0 15px; /* Adjust the margin between the icons as desired */
+  margin: 0 15px;
 }
 
 footer {
