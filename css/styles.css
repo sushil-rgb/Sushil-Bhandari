@@ -1,5 +1,4 @@
 /* styles.css */
-
 body { 
   background-color:  #d9eaff; /* Light blue background */
   color: #333333; /* Dark gray text color */
@@ -105,25 +104,6 @@ footer {
   opacity: 0; /* Hide the text initially */
 }
 
-.caret {
-  display: inline-block;
-  width: 0.15em;
-  height: 1.1em;
-  vertical-align: bottom;
-  background-color: #000;
-  animation: blink-caret 0.75s step-end infinite;
-}
-
-@keyframes blink-caret {
-  from, to {
-    background-color: transparent;
-  }
-  50% {
-    background-color: #000;
-  }
-}
-
-
 #animation-heading {
   opacity: 0;
   transform: translateX(-50px);
@@ -142,6 +122,4 @@ footer {
     transform: translateX(0);
   }
 }
-
-
 
