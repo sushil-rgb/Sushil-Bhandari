@@ -1,4 +1,4 @@
-const text = `👋 👋 Hey there! I'm Sushil, your go-to guy for web scraping and automation. If you've got a project in mind, let's connect and discuss your requirements. 
+const text = `👋 Hey there! I'm Sushil, your go-to guy for web scraping and automation. If you've got a project in mind, let's connect and discuss your requirements. 
 Feel free to reach out using the contact details below. Cheers!`;
 
 const typingText = document.getElementById('typing-text');
