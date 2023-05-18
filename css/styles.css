@@ -15,7 +15,6 @@ body {
   
 }
 
-
 .project-container {
   display: flex;
   justify-content: space-between;
@@ -57,7 +56,6 @@ img {
   text-align: center;
 }
 
-
 #projects h1 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -69,7 +67,6 @@ a {
   text-decoration: none;
 }
 
-
 .robo {
   width: 100px;
 }
@@ -78,17 +75,32 @@ p {
   color: #555555; /* Dark gray paragraph color */
 }
 
+#social-icons-container {
+  opacity: 0;
+  animation: fade-in 1s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .social-icons {
   display: flex;
   justify-content: center;
-  margin-top: 30px;  
+  margin-top: 30px;
 }
 
 .icon {
   width: 30px;
   height: auto;
   margin: 0 15px;
+  opacity: 0;
+  animation: icon-fade-in 1s ease-in-out forwards;
 }
 
 footer {
