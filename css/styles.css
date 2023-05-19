@@ -7,12 +7,12 @@ body {
 
 a {
   text-decoration: none;
+  text-align: center;
 }
 
 p {
   color: #555555; /* Dark gray paragraph color */
 }
-
 
 img {
   max-width: 80%;
@@ -27,6 +27,7 @@ h2 {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 2px;
+  text-align: center;
 }
 
 #projects {
@@ -53,7 +54,7 @@ h2 {
   text-align: center;  
 }
 
-.project-container {
+.project-container{
   display: flex;
   justify-content: space-between;
   width: 80%;
@@ -71,6 +72,7 @@ h2 {
   padding: 10px;
   background-color: rgb(245, 245, 245, 0.3);
   transition: transform 0.3s, opacity 0.3s; /* Add transition for smooth animation */
+  text-align: center;
 }
 
 .project-container:hover .project-1:not(:hover),
@@ -88,8 +90,6 @@ h2 {
 .project-1,
 .project-2,
 .project-3,
-
-
 .robo {
   width: 100px;
   opacity: 0;
@@ -104,7 +104,6 @@ h2 {
     opacity: 1;
   }
 }
-
 
 #social-icons-container {
   opacity: 0;
@@ -139,6 +138,19 @@ h2 {
   transform: scale(1.1);
 }
 
+.i {
+  width: 30px;
+  transition: transform 0.3s;  
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+.i:hover {
+  transform: scale(1.1);
+}
 
 footer {
   text-align: center;
@@ -153,10 +165,10 @@ footer {
   opacity: 0; /* Hide the text initially */
 }
 
-#animation-heading {
+#animation-heading{
   font-size: 28px;
   color: #333333;
-  margin: 20 px;
+  margin: 20px;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 2px;
