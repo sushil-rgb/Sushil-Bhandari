@@ -1,10 +1,10 @@
-const text = `👋 Hey there! I'm Sushil, your go-to guy for web scraping and automation. If you've got a project in mind, let's connect and discuss your requirements. 
-Feel free to reach out using the contact details below. Cheers!`;
+const text = `👋 Hey there! I'm Sushil, your go-to guy for web scraping and automation. Let's connect and discuss your project requirements. Contact me below. Cheers!`;
 
 const typingText = document.getElementById('typing-text');
 const socialIconsContainer = document.getElementById('social-icons-container');
 const icons = socialIconsContainer.getElementsByClassName('icon');
 const projectsSection = document.getElementById('projects');
+const projectContainer = document.getElementById('project-container');
 let charIndex = 0;
 
 function type() {
@@ -39,6 +39,9 @@ function fadeInProjectsSection() {
 
     if (opacity >= 1) {
       clearInterval(intervalId);
+      setTimeout(() => {
+        projectContainer.style.opacity = '1'; // Show the project container with a delay
+      }, 500); // Delay in milliseconds before showing the project container
     }
   }, 100);
 }
@@ -47,3 +50,4 @@ setTimeout(() => {
   typingText.style.opacity = '1'; // Show the text initially
   type();
 }, 1000); // Delay before starting the animation
+

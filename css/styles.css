@@ -5,6 +5,24 @@ body {
   font-family: 'Roboto Mono', monospace; /* Font family for developer */
 }
 
+a {
+  text-decoration: none;
+}
+
+p {
+  color: #555555; /* Dark gray paragraph color */
+}
+
+h2, h3 {
+  font-size: 28px;
+  color: #333333;
+  margin: 20 px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
 #about {
   margin: 20px auto; /* Adjust the margin values as desired */
   padding: 10px;
@@ -16,6 +34,7 @@ body {
 }
 
 .project-container {
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   width: 80%;
@@ -63,16 +82,18 @@ img {
   text-align: center;
 }
 
-a {
-  text-decoration: none;
-}
-
 .robo {
   width: 100px;
+  animation: fade-in 5s ease-in-out;
 }
 
-p {
-  color: #555555; /* Dark gray paragraph color */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 #social-icons-container {
@@ -107,25 +128,19 @@ p {
   transform: scale(1.1);
 }
 
-.i {
+#github {
   width: 30px;
   transition: transform 0.3s;  
-  text-align: center;
-  margin: 0 auto;
+  position: relative;
+  top: -20px;
+  margin: -10px auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
  }
 
-.i:hover {
+#github:hover {
   transform: scale(1.1);
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #d9eaff; /* White footer background */
-  color: #555555; /* Dark gray text color */
 }
 
 #typing-text {
@@ -135,6 +150,8 @@ footer {
 }
 
 #animation-heading {
+  position: relative;
+  top: -10px;
   opacity: 0;
   transform: translateX(-50px);
   animation: slide-in-fade-in 1s forwards;
@@ -151,5 +168,19 @@ footer {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.section-divider {
+  height: 2px;
+  background: linear-gradient(to right, #f0f5fd, #ffffff, #f0f5fd);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+  margin: 20px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #d9eaff; /* White footer background */
+  color: #555555; /* Dark gray text color */
 }
 
