@@ -100,7 +100,11 @@ p {
   height: auto;
   margin: 0 15px;
   opacity: 0;
-  animation: icon-fade-in 1s ease-in-out forwards;
+  transition: transform 0.3s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
 }
 
 .i {
