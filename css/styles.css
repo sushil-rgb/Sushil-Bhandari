@@ -5,56 +5,17 @@ body {
   font-family: 'Roboto Mono', monospace; /* Font family for developer */
 }
 
-a {
-  text-decoration: none;
-  text-align: center;
-}
-
-p {
-  color: #555555; /* Dark gray paragraph color */
-}
-
-img {
-  max-width: 80%;
-  height: auto;
-  text-align: center;
-}
-
-h2 {
-  font-size: 28px;
-  color: #333333;
-  margin: 20 px;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-align: center;
-}
-
-#projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-#projects h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333;
-  text-align: center;
-}
-
 #about {
   margin: 20px auto; /* Adjust the margin values as desired */
   padding: 10px;
   max-width: 800px;
   background-color:rgba(240, 245, 253, 0.5); 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;  
+  text-align: center;
+  
 }
 
-.project-container{
+.project-container {
   display: flex;
   justify-content: space-between;
   width: 80%;
@@ -72,7 +33,6 @@ h2 {
   padding: 10px;
   background-color: rgb(245, 245, 245, 0.3);
   transition: transform 0.3s, opacity 0.3s; /* Add transition for smooth animation */
-  text-align: center;
 }
 
 .project-container:hover .project-1:not(:hover),
@@ -90,19 +50,29 @@ h2 {
 .project-1,
 .project-2,
 .project-3,
-.robo {
-  width: 100px;
-  opacity: 0;
-  animation: fade-in 15s forwards;
+img {
+  max-width: 80%;
+  height: auto;
+  text-align: center;
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+#projects h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.robo {
+  width: 100px;
+}
+
+p {
+  color: #555555; /* Dark gray paragraph color */
 }
 
 #social-icons-container {
@@ -131,11 +101,6 @@ h2 {
   margin: 0 15px;
   opacity: 0;
   animation: icon-fade-in 1s ease-in-out forwards;
-  transition: transform 0.3s;
-}
-
-.icon:hover {
-  transform: scale(1.1);
 }
 
 .i {
@@ -165,13 +130,7 @@ footer {
   opacity: 0; /* Hide the text initially */
 }
 
-#animation-heading{
-  font-size: 28px;
-  color: #333333;
-  margin: 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 2px;
+#animation-heading {
   opacity: 0;
   transform: translateX(-50px);
   animation: slide-in-fade-in 1s forwards;
@@ -188,12 +147,5 @@ footer {
     opacity: 1;
     transform: translateX(0);
   }
-}
-
-.section-divider {
-  height: 2px;
-  background: linear-gradient(to right, #f0f5fd, #ffffff, #f0f5fd);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1) inset;
-  margin: 20px 0;
 }
 
