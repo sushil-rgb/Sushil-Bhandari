@@ -44,9 +44,7 @@ h2, h3 {
   margin-bottom: 40px; /* Add margin bottom for better spacing */
 }
 
-.project-1,
-.project-2,
-.project-3 {
+.project {  
   flex: 1 0 30%;
   margin: 0 10px;
   width: 350px;
@@ -56,21 +54,17 @@ h2, h3 {
   transition: transform 0.3s, opacity 0.3s;
 }
 
-.project-container:hover .project-1:not(:hover),
-.project-container:hover .project-2:not(:hover),
-.project-container:hover .project-3:not(:hover) {
+.project-container:hover .project:not(:hover)
+ {
   opacity: 0.8; /* Reduce opacity for non-hovered projects */
 }
 
-.project-1:hover,
-.project-2:hover,
-.project-3:hover {
+.project:hover
+ {
   transform: scale(1.05); /* Slightly zoom in on hover */
 }
 
-.project-1,
-.project-2,
-.project-3,
+.project,
 img {
   max-width: 100%; /* Make images responsive */
   height: auto;
