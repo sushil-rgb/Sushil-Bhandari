@@ -56,7 +56,7 @@ h2, h3 {
 
 .project-container:hover .project:not(:hover)
  {
-  opacity: 0.8; /* Reduce opacity for non-hovered projects */
+  opacity: 0.5; /* Reduce opacity for non-hovered projects */
 }
 
 .project:hover
