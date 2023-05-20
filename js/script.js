@@ -1,5 +1,4 @@
-const text = `👋 Hey there! I'm Sushil, your go-to guy for web scraping and automation. 
-                 Let's connect and discuss your project requirements. Contact me below. Cheers!`;
+const text = `👋 Hey there! I'm Sushil, your go-to guy for web scraping and automation. Let's connect and discuss your project requirements. Contact me below. Cheers!`;
 
 const typingText = document.getElementById('typing-text');
 const socialIconsContainer = document.getElementById('social-icons-container');
