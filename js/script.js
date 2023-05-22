@@ -2,11 +2,7 @@ const skipButton = document.getElementById('skipButton');
 let skipAnimation = false;
 
 // Event listener for the skip button
-skipButton.addEventListener('click', () => {
-  skipAnimation = true;
-  showFinalState();
-  skipButton.classList.add('hidden'); // Hide the button
-});
+
 
 const text = `👋 Hey there! I'm Sushil, your go-to guy for web scraping and automation. Let's connect and discuss your project requirements. Contact me below. Cheers!`;
 
@@ -45,11 +41,17 @@ function showFinalState() {
   typingText.style.opacity = '1';
   typingText.innerHTML = text; // Show the entire text immediately
   fadeInProjectsSection();
-  socialIconsContainer.style.opacity = '1';
   Array.from(icons).forEach((icon) => {
     icon.style.animation = 'fade-in 1s ease-in forwards';
   });
 }
+
+skipButton.addEventListener('click', () => {
+  skipAnimation = true;
+  showFinalState();
+  skipButton.classList.add('hidden'); // Hide the button
+  socialIconsContainer.style.opacity = '1'; // Show the social media icons
+});;
 
 function fadeInProjectsSection() {
   projectsSection.style.opacity = '0';
@@ -73,3 +75,4 @@ setTimeout(() => {
   typingText.style.opacity = '1'; // Show the text initially
   type();
 }, 1000); // Delay before starting the animation
+
