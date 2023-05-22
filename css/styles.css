@@ -32,6 +32,7 @@ h2, h3 {
   background-color: rgba(240, 240, 240, 0.2); /* Light gray background */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+  position: relative;
 }
 
 .project-container {

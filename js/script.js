@@ -51,7 +51,7 @@ skipButton.addEventListener('click', () => {
   showFinalState();
   skipButton.classList.add('hidden'); // Hide the button
   socialIconsContainer.style.opacity = '1'; // Show the social media icons
-});;
+});
 
 function fadeInProjectsSection() {
   projectsSection.style.opacity = '0';
