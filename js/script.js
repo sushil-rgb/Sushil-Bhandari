@@ -1,3 +1,13 @@
+const skipButton = document.getElementById('skipButton');
+let skipAnimation = false;
+
+// Event listener for the skip button
+skipButton.addEventListener('click', () => {
+  skipAnimation = true;
+  showFinalState();
+  skipButton.classList.add('hidden'); // Hide the button
+});
+
 const text = `👋 Hey there! I'm Sushil, your go-to guy for web scraping and automation. Let's connect and discuss your project requirements. Contact me below. Cheers!`;
 
 const typingText = document.getElementById('typing-text');
@@ -8,6 +18,12 @@ const projectContainer = document.getElementById('project-container');
 let charIndex = 0;
 
 function type() {
+  // Check if skipAnimation is true
+  if (skipAnimation) {
+    showFinalState();
+    return;
+  }
+
   typingText.innerHTML = text.slice(0, charIndex);
   charIndex++;
 
@@ -20,12 +36,19 @@ function type() {
 
     setTimeout(type, delay);
   } else {
-    fadeInProjectsSection();
-    socialIconsContainer.style.opacity = '1';
-    Array.from(icons).forEach((icon) => {
-      icon.style.animation = 'fade-in 1s ease-in forwards';
-    });
+    showFinalState();
+    skipButton.classList.add('hidden'); // Hide the button
   }
+}
+
+function showFinalState() {
+  typingText.style.opacity = '1';
+  typingText.innerHTML = text; // Show the entire text immediately
+  fadeInProjectsSection();
+  socialIconsContainer.style.opacity = '1';
+  Array.from(icons).forEach((icon) => {
+    icon.style.animation = 'fade-in 1s ease-in forwards';
+  });
 }
 
 function fadeInProjectsSection() {
@@ -50,4 +73,3 @@ setTimeout(() => {
   typingText.style.opacity = '1'; // Show the text initially
   type();
 }, 1000); // Delay before starting the animation
-
