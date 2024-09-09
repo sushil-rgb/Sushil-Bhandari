@@ -1,81 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Harvester</title>
-  <link rel="stylesheet" href="css/styles.css"> <!-- Add your custom CSS file here -->
+  <link rel="icon" href="images/spider.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/styles.css"> <!-- Link to the updated CSS -->
   <script src="js/script.js" async defer></script>
 </head>
 
 <body> 
+  <section id="about">
+    <button id="skipButton">Skip Intro</button>
+    <img class='robo' src='images/dev.png' alt='Robot'>
+    <p id='typing-text'></p>
 
-  <section id="about">      
-    <button id="skipButton">Skip introduction</button>
-    <img class = 'robo' src = 'images/robo.png'> 
-    <p id = 'typing-text'></p>
+    <div id='social-icons-container'>
+      <div class='social-icons'>
 
-    <div id = 'social-icons-container'>
-      <div class = 'social-icons'>      
-        <!-- <a href = "https://www.linkedin.com/in/sushil-b-46594420a/" target = "_blank">
-          <img class = 'icon' src = 'images/linkedin.png' alt = 'LinkedIn'>
-        </a> -->
-        <a href = "https://www.upwork.com/freelancers/~017c0d983bfe5ba79f" target = "_blank">
-          <img class = 'icon' src = 'images/upwork.png' alt = 'Upwork'>
-        </a>        
-        <a href = "mailto:sushil.bhandari002@gmail.com" target = "_blank">
-          <img class = 'icon' src = 'images/email.png' alt = 'Email'>
+        <a href="mailto:sushil.bhandari002@gmail.com" target="_blank">
+          <img class='icon' src='images/email.png' alt='Email'>
         </a>
+
+        <a href="https://www.upwork.com/freelancers/~017c0d983bfe5ba79f" target="_blank">
+          <img class='icon' src='images/upwork.png' alt='Upwork'>
+        </a>
+
+        <a href = "https://www.linkedin.com/in/sushil-b-46594420a/" target = "_blank">
+          <img class = 'icon' src = 'images/linkedin.png' alt = 'LinkedIn'>
+        </a>
+
       </div>
     </div>
   </section>
   
-  <div class = "section-divider"></div>
-  
-  <section id="projects" style = 'display: none;'>    
-    <h3 id = 'animation-heading'>Projects</h3>            
-      <a href = "https://github.com/sushil-rgb" target = "_blank">
-        <img id = 'github' src = 'images/github.png' alt = 'GitHub'>
-      </a>  
-     
-      <div class = 'project-container'>
+  <div class="section-divider"></div>
 
-        <div class="project">
-            <h2>
-              <a href = 'https://github.com/sushil-rgb/AmazonMe' target = '_blank'>Web Scraper            
-            </h2>        
-            <img src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmNmZjFmNzlkMmZhMGI3ZTVmZTc1MDFiNmZhMDAyOTFmOTI2YTU0ZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/z1yvTb9gwvuZG9N0Xz/giphy.gif" alt = "Amazon-Demo">
-              </a>
-            <p>Introducing AmazonMe, an ethical and high-performing web scraper built with Python using the Requests, Beautifulsoup, aiohttp, and asyncio libraries. 
-              This versatile tool ensures seamless and concurrent data extraction from Amazon.com while adhering to responsible scraping practices. 
-              With AmazonMe, users can ethically navigate and retrieve data from Amazon's website, making it a reliable and trustworthy choice for conducting scraping tasks with integrity.</p>
-        </div>
+  <section id="projects" style="display: none;">
+    <h3 id="animation-heading">Projects</h3>
+    <a href="https://github.com/sushil-rgb" target="_blank">
+      <img id='github' src='images/github.png' alt='GitHub'>
+    </a>
 
-        <div class="project">
-          <h2><a href = 'https://discord.com/api/oauth2/authorize?client_id=1091094561314582528&permissions=1634235578438&scope=bot' target = '__blank'>Discord Bot</h2>        
-            <img src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWU0YjJjMTEyODBmYzI0Mjk1Mjg1YTdmMTVkYWNiNGM5YWFkNDVkZSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Jg3cKSlnweCsRp5RC1/giphy.gif" alt = "Amazon-bot-Demo">
-          </a>
-            <p>AmazonBuddy is a Discord bot designed to swiftly extract product information from Amazon using ASIN or ISBN. 
-              It efficiently retrieves these identifiers from Amazon product links, saving users precious time. 
-              With its user-friendly interface and advanced web scraping techniques, AmazonBuddy guarantees rapid and precise results, making it an indispensable tool for effortless product research on Amazon.
-            </p>
-        </div>
-                
-        <div class="project">
-          <h2><a href = 'https://ukhaan-tukka-api.onrender.com/' target = '__blank'>FastAPI</h2>        
-            <img src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjE3YjIxNmJkMjI1ZDRjYmFhNjljY2NiNDY1NzYyZWI0MDk4NGVhYSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Lj4Ttc86skAEtqxEXM/giphy.gif" alt = "Fast-API-demo">
-          </a>
-            <p>The UkhaanTukka API, powered by FastAPI, provides a collection of Nepali idioms <i>(ukhaan)</i> along with their transliteration, English meaning, and example sentences. 
-              Following REST API principles, it efficiently handles HTTP requests and retrieves data from the <a href = "https://github.com/chapainaashish/nepali-ukhaan" target = "_blank">nepali-ukhaan</a> repository's README.md file. Accessible endpoints allow users to retrieve the complete ukhaan list. 
-              Experience the convenience of integrating ukhaan <i>(idioms)</i> data into your applications or exploring Nepali idioms with the UkhaanTukka API and FastAPI.</p>
-        </div>
+    <div class='project-container'>
+      <!-- Web Scraper Project -->
+      <div class="project">
+        <h2><a href='https://github.com/sushil-rgb/AmazonMe' target='_blank'>Web Scraper</a></h2>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmNmZjFmNzlkMmZhMGI3ZTVmZTc1MDFiNmZhMDAyOTFmOTI2YTU0ZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/z1yvTb9gwvuZG9N0Xz/giphy.gif" alt="Amazon-Demo">
+        <p>Introducing AmazonMe, an ethical and high-performing web scraper built with Python using the Requests, Beautifulsoup, aiohttp, and asyncio libraries. This versatile tool ensures seamless and concurrent data extraction from Amazon.com while adhering to responsible scraping practices. With AmazonMe, users can ethically navigate and retrieve data from Amazon's website, making it a reliable and trustworthy choice for conducting scraping tasks with integrity.</p>
+      </div>
 
-      </div>     
-  </section>  
+      <!-- Discord Bot Project -->
+      <div class="project">
+        <h2><a href='https://discord.com/api/oauth2/authorize?client_id=1091094561314582528&permissions=1634235578438&scope=bot' target='_blank'>Discord Bot</a></h2>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWU0YjJjMTEyODBmYzI0Mjk1Mjg1YTdmMTVkYWNiNGM5YWFkNDVkZSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Jg3cKSlnweCsRp5RC1/giphy.gif" alt="Amazon-bot-Demo">
+        <p>AmazonBuddy is a Discord bot designed to swiftly extract product information from Amazon using ASIN or ISBN. It efficiently retrieves these identifiers from Amazon product links, saving users precious time. With its user-friendly interface and advanced web scraping techniques, AmazonBuddy guarantees rapid and precise results, making it an indispensable tool for effortless product research on Amazon.</p>
+      </div>
+
+      <!-- FastAPI Project -->
+      <div class="project">
+        <h2><a href='https://ukhaan-tukka-api.onrender.com/' target='_blank'>FastAPI</a></h2>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjE3YjIxNmJkMjI1ZDRjYmFhNjljY2NiNDY1NzYyZWI0MDk4NGVhYSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Lj4Ttc86skAEtqxEXM/giphy.gif" alt="Fast-API-demo">
+        <p>The UkhaanTukka API, powered by FastAPI, provides a collection of Nepali idioms (ukhaan) along with their transliteration, English meaning, and example sentences. Following REST API principles, it efficiently handles HTTP requests and retrieves data from the nepali-ukhaan repository's README.md file. Accessible endpoints allow users to retrieve the complete ukhaan list. Experience the convenience of integrating ukhaan (idioms) data into your applications or exploring Nepali idioms with the UkhaanTukka API and FastAPI.</p>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2024 Sushil. All rights reserved. Powered by <a href = "https://chat.openai.com/" target = '_blank'>ChatGPT.</a></p>
+    <p>&copy; <span id="year"></span> Sushil. All rights reserved. Powered by <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>.</p>
   </footer>
-
 
 </body>
 </html>
-

@@ -76,3 +76,9 @@ setTimeout(() => {
   type();
 }, 1000); // Delay before starting the animation
 
+
+// Get the current year
+const currentYear = new Date().getFullYear();
+
+// Insert the current year into the element with ID 'year'
+document.getElementById('year').textContent = currentYear;
