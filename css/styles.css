@@ -1,218 +1,542 @@
-/* styles.css */
+/* GTA V Los Santos Style CSS Variables */
+:root {
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1c1c1c;
+  --bg-card: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d4;
+  --text-muted: #9ca3af;
+
+  /* GTA V Los Santos Colors - Urban/Realistic */
+  --gta-gold: #f4c430;
+  --gta-blue: #4a9eff;
+  --gta-green: #7cb342;
+  --gta-orange: #ff6b35;
+  --gta-red: #e53e3e;
+  --gta-dark: #2d3748;
+
+  /* Primary accent is GTA gold */
+  --accent-primary: var(--gta-gold);
+  --accent-secondary: var(--gta-blue);
+  --accent-gradient: linear-gradient(135deg, #f4c430 0%, #ff6b35 50%, #4a9eff 100%);
+
+  /* Subtle borders and shadows */
+  --border-subtle: rgba(244, 196, 48, 0.3);
+  --shadow-glow: 0 0 20px rgba(244, 196, 48, 0.2);
+  --shadow-blue: 0 0 15px rgba(74, 158, 255, 0.2);
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #d9eaff; /* Light gray background */
-  color: #333333; /* Dark gray text color */
-  font-family: monospace; /* Font family for the body */
+  font-family: 'Roboto', 'Arial', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-a {
-  text-decoration: none; /* Add underline to links */
-  color: #007bff; /* Blue link color */
+.claude-link {
+  color: var(--gta-blue);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
-p {
-  color: #777777; /* Light gray paragraph color */
-  line-height: 1.5; /* Increase line height for better readability */
-  font-size: large;
-
+.claude-link:hover {
+  color: var(--gta-orange);
+  text-decoration: none;
 }
 
-h2, h3 {
-  font-size: 24px; /* Decrease heading font size */
-  color: #333333;
-  margin: 20px 0; /* Adjust margin values */
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-align: center;
+/* Animated Background - Urban Style */
+.bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
 }
 
-#about {
-  margin: 40px auto; /* Increase margin for the about section */
-  padding: 20px; /* Increase padding for better spacing */
-  max-width: 900px; /* Increase max-width for wider content */
-  background-color: rgba(240, 240, 240, 0.2); /* Light gray background */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  position: relative;
+.bg-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(244, 196, 48, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(74, 158, 255, 0.04) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 48%, rgba(255, 107, 53, 0.02) 50%, transparent 52%);
+  animation: urbanShift 25s ease-in-out infinite;
 }
 
-.project-container {
-  overflow: hidden;
+@keyframes urbanShift {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+/* Navigation - GTA V HUD Style */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.2rem 2rem;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(15, 15, 15, 0.95);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  width: 90%; /* Increase width for wider container */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  margin-bottom: 40px; /* Add margin bottom for better spacing */
-}
-
-.project {
-  flex: 1 0 30%;
-  margin: 0 10px;
-  width: 350px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px; /* Increase padding for better spacing */
-  background-color: rgba(255, 255, 255, 0.1); /* White background */
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-.project-container:hover .project:not(:hover)
- {
-  opacity: 0.5; /* Reduce opacity for non-hovered projects */
-}
-
-.project:hover
- {
-  transform: scale(1.05); /* Slightly zoom in on hover */
-}
-
-.project,
-img {
-  max-width: 100%; /* Make images responsive */
-  height: auto;
-  text-align: center;
-}
-
-#projects h1 {
-  font-size: 28px; /* Increase heading font size */
-  margin-bottom: 30px; /* Adjust margin bottom */
-  color: #333;
-  text-align: center;
-}
-
-.robo {
-  width: 150px; /* Increase robot image size */
-  animation: fade-in 5s ease-in-out; /* Adjust animation duration */
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-#social-icons-container {
-  opacity: 1; /* Set initial opacity to 1 for immediate visibility */
-  animation: fade-in 1s ease-in-out forwards;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.icon {
-  width: 40px; /* Increase icon size */
-  height: auto;
-  margin: 0 15px;
-  opacity: 0; /* Adjust opacity for better visibility */
-  transition: transform 0.3s;
-}
-
-.icon:hover {
-  transform: scale(1.1); /* Increase scale on hover */
-}
-
-#github {
-  width: 40px; /* Increase GitHub icon size */
-  transition: transform 0.3s;
-  position: relative;
-  top: -20px;
-  margin: -10px auto 0;
-  display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-#github:hover {
-  transform: scale(1.1); /* Increase scale on hover */
+.logo {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
 }
 
-#typing-text {
-  white-space: pre-line;
-  overflow: hidden;
-  opacity: 0;
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
 }
 
-#animation-heading {
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
   position: relative;
-  top: -10px;
-  opacity: 0;
-  transform: translateX(-50px);
-  animation: slide-in-fade-in 1s forwards;
-  text-align: center;
-  font-family: 'Roboto-Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-@keyframes slide-in-fade-in {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.nav-links a:hover {
+  color: var(--accent-primary);
 }
 
-.section-divider {
-  height: 1px; /* Decrease height of section divider */
-  background: linear-gradient(to right, #f0f0f0, #ffffff, #f0f0f0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1) inset;
-  margin: 20px 0;
-}
-
-footer {
-  text-align: center;
-  margin-top: auto;
-  padding: 20px; /* Increase padding for better spacing */
-  color: #777777; /* Light gray text color */
-  font-size: 14px; /* Decrease font size for the footer */
-}
-
-#skipButton {
+.nav-links a::after {
+  content: '';
   position: absolute;
-  top: 30px;
-  right: 30px;
-  background-color: transparent;
-  border: none;
-  padding: 10px 20px;
-  font-size: 10px;
-  font-family: 'Roboto Mono', monospace;
-  cursor: pointer;
-  margin-top: 20px;
-  animation: zoomEffect 4s infinite alternate;
-  color: #777777;
-  line-height: 1.5;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  transition: width 0.3s ease;
 }
 
-@keyframes zoomEffect {
-  0% {
-    transform: scale(1);
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section - Clean and Professional */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 2rem;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 900px;
+  z-index: 2;
+}
+
+.hero-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin: 0 auto 2.5rem;
+  background: var(--accent-gradient);
+  padding: 4px;
+  box-shadow: var(--shadow-card);
+  animation: subtleFloat 6s ease-in-out infinite;
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px);
   }
   50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
+    transform: translateY(-8px);
   }
 }
 
-#skipButton.hidden {
+.hero-title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideUp 1s ease-out;
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  animation: slideUp 1s ease-out 0.2s both;
+}
+
+.typing-text {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.1rem;
+  color: var(--gta-green);
+  margin-bottom: 3rem;
+  min-height: 3rem;
+  animation: slideUp 1s ease-out 0.4s both;
+  font-weight: 400;
+}
+
+.typing-cursor {
+  animation: blink 1.2s infinite;
+  color: var(--accent-primary);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Social Links - Modern Style */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  animation: slideUp 1s ease-out 0.6s both;
+}
+
+.social-link {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-size: 1.3rem;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: rgba(244, 196, 48, 0.1);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-muted);
+  animation: bounce 2.5s infinite;
+  font-size: 1.2rem;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Projects Section - Professional Cards */
+.section {
+  padding: 8rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+  margin-bottom: 4rem;
+  font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 5rem;
+  justify-items: center;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2.5rem;
+  backdrop-filter: blur(15px);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  max-width: 400px;
+  width: 100%;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  right: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  transition: left 0.5s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(244, 196, 48, 0.1);
+  border-color: var(--accent-primary);
+}
+
+.project-card:hover::before {
+  left: 0;
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  border-color: var(--accent-primary);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.project-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.project-title a:hover {
+  color: var(--accent-primary);
+}
+
+.project-description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tech-tag {
+  padding: 0.4rem 1rem;
+  background: rgba(244, 196, 48, 0.1);
+  border: 1px solid rgba(244, 196, 48, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(74, 158, 255, 0.1);
+  border-color: var(--gta-blue);
+  color: var(--gta-blue);
+}
+
+/* GitHub Link */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.github-link:hover {
+  color: var(--accent-primary);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+  font-size: 0.95rem;
+}
+
+/* Skip Button */
+.skip-button {
+  position: fixed;
+  top: 120px;
+  right: 2rem;
+  z-index: 50;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.skip-button:hover {
+  background: rgba(244, 196, 48, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: scale(1.05);
+}
+
+.skip-button.hidden {
   display: none;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-links {
+    gap: 1.25rem;
+  }
+
+  .hero {
+    padding: 1rem;
+  }
+
+  .section {
+    padding: 5rem 1rem;
+  }
+
+  .skip-button {
+    right: 1rem;
+    top: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-avatar {
+    width: 110px;
+    height: 110px;
+  }
+
+  .social-link {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+  }
+
+  .project-card {
+    padding: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}

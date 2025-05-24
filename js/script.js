@@ -1,84 +1,164 @@
-const skipButton = document.getElementById('skipButton');
-let skipAnimation = false;
-
-// Event listener for the skip button
-
-
 const text = `👋 Hey there! I'm Sushil, your go-to guy for web scraping and automation. Let's connect and discuss your project requirements. Contact me below. Cheers!`;
 
-const typingText = document.getElementById('typing-text');
-const socialIconsContainer = document.getElementById('social-icons-container');
-const icons = socialIconsContainer.getElementsByClassName('icon');
-const projectsSection = document.getElementById('projects');
-const projectContainer = document.getElementById('project-container');
-let charIndex = 0;
+    const typingElement = document.getElementById('typingText');
+    const socialLinks = document.getElementById('socialLinks');
+    const skipButton = document.getElementById('skipButton');
+    let charIndex = 0;
+    let skipAnimation = false;
 
-function type() {
-  // Check if skipAnimation is true
-  if (skipAnimation) {
-    showFinalState();
-    return;
-  }
+    function typeWriter() {
+      if (skipAnimation) {
+        showFinalState();
+        return;
+      }
 
-  typingText.innerHTML = text.slice(0, charIndex);
-  charIndex++;
+      if (charIndex < text.length) {
+        typingElement.innerHTML = text.slice(0, charIndex + 1) + '<span class="typing-cursor">|</span>';
+        charIndex++;
 
-  if (charIndex <= text.length) {
-    const currentChar = text.charAt(charIndex - 1);
-    const nextChar = text.charAt(charIndex);
+        const currentChar = text.charAt(charIndex - 1);
+        let delay = 50;
 
-    // Adjust typing speed and delay for line breaks
-    const delay = (currentChar === '<' && nextChar === 'b' && text.charAt(charIndex + 2) === 'r' && text.charAt(charIndex + 3) === '>') ? 1000 : 50;
+        if (currentChar === '.' || currentChar === '!' || currentChar === '?') {
+          delay = 800;
+        } else if (currentChar === ',' || currentChar === ';') {
+          delay = 400;
+        } else if (currentChar === '\n') {
+          delay = 600;
+        }
 
-    setTimeout(type, delay);
-  } else {
-    showFinalState();
-    skipButton.classList.add('hidden'); // Hide the button
-  }
-}
-
-function showFinalState() {
-  typingText.style.opacity = '1';
-  typingText.innerHTML = text; // Show the entire text immediately
-  fadeInProjectsSection();
-  Array.from(icons).forEach((icon) => {
-    icon.style.animation = 'fade-in 1s ease-in forwards';
-  });
-}
-
-skipButton.addEventListener('click', () => {
-  skipAnimation = true;
-  showFinalState();
-  skipButton.classList.add('hidden'); // Hide the button
-  socialIconsContainer.style.opacity = '1'; // Show the social media icons
-});
-
-function fadeInProjectsSection() {
-  projectsSection.style.opacity = '0';
-  projectsSection.style.display = 'block';
-
-  let opacity = 0;
-  const intervalId = setInterval(function() {
-    opacity += 0.1;
-    projectsSection.style.opacity = opacity.toString();
-
-    if (opacity >= 1) {
-      clearInterval(intervalId);
-      setTimeout(() => {
-        projectContainer.style.opacity = '1'; // Show the project container with a delay
-      }, 500); // Delay in milliseconds before showing the project container
+        setTimeout(typeWriter, delay);
+      } else {
+        showFinalState();
+      }
     }
-  }, 100);
-}
 
-setTimeout(() => {
-  typingText.style.opacity = '1'; // Show the text initially
-  type();
-}, 1000); // Delay before starting the animation
+    function showFinalState() {
+      typingElement.innerHTML = text.replace(/\n/g, '<br>');
+      socialLinks.style.opacity = '1';
+      socialLinks.style.transform = 'translateY(0)';
+      skipButton.classList.add('hidden');
 
+      // Trigger projects section animation
+      setTimeout(() => {
+        const projectsSection = document.getElementById('projects');
+        projectsSection.style.opacity = '1';
+        projectsSection.style.transform = 'translateY(0)';
+      }, 500);
+    }
 
-// Get the current year
-const currentYear = new Date().getFullYear();
+    // Skip button functionality
+    skipButton.addEventListener('click', () => {
+      skipAnimation = true;
+      showFinalState();
+    });
 
-// Insert the current year into the element with ID 'year'
-document.getElementById('year').textContent = currentYear;
+    // Start typing animation after page load
+    setTimeout(() => {
+      typeWriter();
+    }, 1000);
+
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Initially hide projects section for animation
+    const projectsSection = document.getElementById('projects');
+    projectsSection.style.opacity = '0';
+    projectsSection.style.transform = 'translateY(30px)';
+    projectsSection.style.transition = 'all 0.8s ease-out';
+
+    // Observe project cards for staggered animation
+    document.querySelectorAll('.project-card').forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+      observer.observe(card);
+    });
+
+    // Add parallax effect to background
+    let ticking = false;
+
+    function updateParallax() {
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.bg-animation::before');
+
+      if (parallax) {
+        const yPos = -(scrolled * 0.5);
+        parallax.style.transform = `translateY(${yPos}px)`;
+      }
+
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick);
+
+    // Add hover effects for project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-8px) scale(1.02)';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // Enhanced loading animation
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+      document.body.style.transform = 'translateY(0)';
+    });
+
+    // Add mobile menu toggle (for future enhancement)
+    const navToggle = document.createElement('button');
+    navToggle.innerHTML = '☰';
+    navToggle.className = 'nav-toggle';
+    navToggle.style.display = 'none';
+
+    // Mobile responsiveness check
+    function checkMobile() {
+      if (window.innerWidth <= 768) {
+        navToggle.style.display = 'block';
+      } else {
+        navToggle.style.display = 'none';
+      }
+    }
+
+    window.addEventListener('resize', checkMobile);
+    checkMobile();
