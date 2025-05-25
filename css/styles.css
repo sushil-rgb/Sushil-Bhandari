@@ -522,9 +522,10 @@ footer {
 
   .skip-button {
     right: 1rem;
-    top: 50px; /* Moved higher on mobile to avoid avatar overlap */
-    padding: 0.4rem 0.7rem; /* Even smaller on mobile */
-    font-size: 0.7rem;
+    top: 20px; /* Much higher on mobile - right after nav */
+    padding: 0.3rem 0.6rem; /* Very compact */
+    font-size: 0.65rem;
+    opacity: 0.7; /* More subtle */
   }
 
   .hero-avatar {
