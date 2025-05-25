@@ -464,18 +464,18 @@ footer {
 /* Skip Button - Adjusted position */
 .skip-button {
   position: fixed;
-  top: 90px; /* Moved up due to smaller nav */
+  top: 70px; /* Moved up due to smaller nav */
   right: 2rem;
   z-index: 50;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
-  padding: 0.65rem 1.1rem; /* Slightly smaller */
-  border-radius: 8px;
+  padding: 0.5rem 0.9rem; /* Smaller for mobile compatibility */
+  border-radius: 6px;
   backdrop-filter: blur(10px);
   cursor: pointer;
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.8rem; /* Slightly smaller */
+  font-size: 0.75rem; /* Smaller text */
   font-weight: 500;
   transition: all 0.3s ease;
   opacity: 0.8;
@@ -522,7 +522,9 @@ footer {
 
   .skip-button {
     right: 1rem;
-    top: 70px; /* Adjusted for smaller mobile nav */
+    top: 50px; /* Moved higher on mobile to avoid avatar overlap */
+    padding: 0.4rem 0.7rem; /* Even smaller on mobile */
+    font-size: 0.7rem;
   }
 
   .hero-avatar {
