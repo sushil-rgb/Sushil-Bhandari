@@ -520,6 +520,17 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  .mobile-view #skipButton {
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-view #skipButton:active {
+    transform: scale(0.95);
+  }
+}
+
 @media (max-width: 480px) {
   .hero-avatar {
     width: 110px;
