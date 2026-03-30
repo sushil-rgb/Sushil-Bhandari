@@ -2,9 +2,9 @@
 //  EmailJS Config
 // ============================================================
 window.__ENV__ = {
-  EMAILJS_PUBLIC_KEY:  'My_PUBLIC_KEY',
-  EMAILJS_SERVICE_ID:  'My_SERVICE_ID',
-  EMAILJS_TEMPLATE_ID: 'My_TEMPLATE_ID'
+  EMAILJS_PUBLIC_KEY:  'PUBLIC_KEY',
+  EMAILJS_SERVICE_ID:  'SERVICE_ID',
+  EMAILJS_TEMPLATE_ID: 'TEMPLATE_ID'
 };
 
 var EMAILJS_PUBLIC_KEY  = (window.__ENV__ && window.__ENV__.EMAILJS_PUBLIC_KEY)  || '';
