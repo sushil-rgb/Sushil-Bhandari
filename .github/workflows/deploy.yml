@@ -1,0 +1,23 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Inject EmailJS credentials
+        run: |
+          sed -i "s|YOUR_PUBLIC_KEY|${{ secrets.EMAILJS_PUBLIC_KEY }}|g" js/script.js
+          sed -i "s|YOUR_SERVICE_ID|${{ secrets.EMAILJS_SERVICE_ID }}|g" js/script.js
+          sed -i "s|YOUR_TEMPLATE_ID|${{ secrets.EMAILJS_TEMPLATE_ID }}|g" js/script.js
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
