@@ -10,8 +10,9 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="images/spider.png" type="image/x-icon">
 
-  <!-- EmailJS SDK — must load before script.js -->
+  <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('0TG7vPor4-_mntTID');</script>
 </head>
 <body>
   <div class="bg-animation"></div>
@@ -44,7 +45,7 @@
 
       <div class="typing-text" id="typingText"></div>
 
-      <div class="social-links" id="socialLinks" style="opacity: 0; transform: translateY(20px); transition: all 0.6s ease;">
+      <div class="social-links" id="socialLinks" style="opacity: 0;">
         <a href="mailto:sushil.bhandari002@gmail.com" class="social-link" title="Email">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -225,10 +226,22 @@
         <p class="demo-desc">Tell me what you need. I'll scrape it and deliver <strong>500 clean, structured records</strong> within <strong>24 hours</strong> — completely free. No payment, no commitment.</p>
 
         <div class="demo-promises">
-          <div class="promise-item"><span class="promise-icon">⚡</span><span>Delivered within 24 hours</span></div>
-          <div class="promise-item"><span class="promise-icon">📦</span><span>500 clean records — CSV or Excel</span></div>
-          <div class="promise-item"><span class="promise-icon">🔒</span><span>No payment required upfront</span></div>
-          <div class="promise-item"><span class="promise-icon">💬</span><span>Direct communication via Email or WhatsApp</span></div>
+          <div class="promise-item">
+            <span class="promise-icon">⚡</span>
+            <span>Delivered within 24 hours</span>
+          </div>
+          <div class="promise-item">
+            <span class="promise-icon">📦</span>
+            <span>500 clean records — CSV or Excel</span>
+          </div>
+          <div class="promise-item">
+            <span class="promise-icon">🔒</span>
+            <span>No payment required upfront</span>
+          </div>
+          <div class="promise-item">
+            <span class="promise-icon">💬</span>
+            <span>Direct communication via Email or WhatsApp</span>
+          </div>
         </div>
 
         <div class="contact-direct">
@@ -255,34 +268,42 @@
           <h3 class="form-title">Submit Your Project</h3>
           <p class="form-subtitle">Fill in the details below and I'll get back to you within a few hours.</p>
 
-          <form class="demo-form" id="demoForm">
+          <form class="demo-form" id="demoForm" onsubmit="handleFormSubmit(event)">
+
             <div class="form-group">
               <label for="clientName">Your Name</label>
               <input type="text" id="clientName" placeholder="e.g. John Smith" required>
             </div>
+
             <div class="form-group">
               <label for="clientContact">Email or WhatsApp Number</label>
               <input type="text" id="clientContact" placeholder="email@example.com or +1 234 567 890" required>
             </div>
+
             <div class="form-group">
               <label for="targetUrl">Target Website URL</label>
               <input type="url" id="targetUrl" placeholder="https://example.com/products" required>
             </div>
+
             <div class="form-group">
               <label for="dataFields">What data do you need?</label>
               <input type="text" id="dataFields" placeholder="e.g. Name, Price, Email, Phone, Address">
             </div>
+
             <div class="form-group">
               <label for="requirements">Requirements &amp; Additional Notes</label>
               <textarea id="requirements" rows="4" placeholder="Describe your project — volume needed, filters, format (CSV/Excel/JSON), any specific pages or categories, login required, etc."></textarea>
             </div>
+
             <!-- <div class="form-group form-group--inline">
               <input type="checkbox" id="freeTrial" checked>
               <label for="freeTrial" class="checkbox-label">Yes, I want the <strong>free 500-record trial</strong> first</label>
             </div> -->
+
             <button type="submit" class="form-submit-btn" id="submitBtn">
               <span id="submitText">Send My Request 🚀</span>
             </button>
+
           </form>
 
           <div class="form-success" id="formSuccess" style="display:none;">
@@ -292,6 +313,7 @@
           </div>
 
           <div id="formError" style="display:none; margin-top:1rem; padding:0.75rem 1rem; background:rgba(229,62,62,0.1); border:1px solid rgba(229,62,62,0.35); border-radius:8px; color:#fc8181; font-size:0.88rem;"></div>
+
         </div>
       </div>
 
@@ -306,6 +328,5 @@
   </footer>
 
   <script src="js/script.js"></script>
-  <script src="js/config.js"></script>
 </body>
 </html>
